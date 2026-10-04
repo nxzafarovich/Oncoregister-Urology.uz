@@ -64,3 +64,7 @@ If needed:
 System Settings → Privacy & Security → Open Anyway
 
 For a normal signed/notarized app without Gatekeeper warnings, Apple Developer ID signing and Apple notarization must be configured separately.
+
+
+## Fix included
+This package defines `SQLITE_TRANSIENT` explicitly for Swift's SQLite3 C API, fixing the Codemagic compile error `cannot find 'SQLITE_TRANSIENT' in scope`.

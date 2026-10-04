@@ -1,6 +1,10 @@
 import Foundation
 import SQLite3
 
+// SQLite C API uses SQLITE_TRANSIENT for values that SQLite must copy.
+// The macro is not exposed to Swift automatically, so define the destructor explicitly.
+private let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+
 enum DBError: Error, LocalizedError {
     case open(String), exec(String), duplicatePINFL, decode
     var errorDescription: String? {
